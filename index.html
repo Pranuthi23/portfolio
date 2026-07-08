@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pranuthi Tenali</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="nav">
+    <a href="index.html" class="nav-logo">Pranuthi Tenali</a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="publications.html" class="nav-link">Publications</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-rule" aria-hidden="true"></div>
+      <div class="hero-text">
+        <p class="role-tag">PhD Student · UT Dallas · StARLinG Lab</p>
+        <h1 class="hero-name">Hi, I'm Pranuthi —<br>I work on Trustworthy Multimodal Fusion.</h1>
+        <p class="hero-bio">
+          I'm a PhD student in Computer Science at the University of Texas at Dallas, advised by
+          <a href="https://personal.utdallas.edu/~sriraam.natarajan/" target="_blank" rel="noopener" class="text-link">Prof. Sriraam Natarajan</a>.
+          My research sits at the intersection of multimodal fusion, probabilistic models, and neuro-symbolic systems —
+          with a focus on building fusion frameworks that are uncertainty-aware, credibility-aware, robust, and interpretable.
+        </p>
+        <ul class="hero-tags" aria-label="Research areas">
+          <li class="tag">Multimodal Fusion</li>
+          <li class="tag">Probabilistic Circuits</li>
+          <li class="tag">Neuro-Symbolic AI</li>
+        </ul>
+        <div class="cta-row">
+          <a href="publications.html" class="btn btn-fill">View publications</a>
+          <a href="blog.html" class="btn btn-out">Read the blog</a>
+        </div>
+      </div>
+      <div class="headshot-wrap">
+        <img
+          src="assets/images/headshot.jpg"
+          alt="Pranuthi Tenali"
+          class="headshot"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <div class="headshot-placeholder" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Your photo<br>goes here</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="sec-label">Recent publications</h2>
+      <ul class="pub-list">
+        <li class="pub">
+          <p class="pub-venue">FUSION 2026 · Conference</p>
+          <p class="pub-title">Context-specific Credibility-aware Multimodal Fusion with Conditional Probabilistic Circuits</p>
+          <p class="pub-meta">Pranuthi Tenali*, Sahil Sidheekh*, Saurabh Mathur*, Erik Blasch, Kristian Kersting, Sriraam Natarajan</p>
+        </li>
+        <li class="pub">
+          <p class="pub-venue">AISTATS 2025 · Conference</p>
+          <p class="pub-title">Credibility-Aware Multi-Modal Fusion Using Probabilistic Circuits</p>
+          <p class="pub-meta">Sahil Sidheekh*, Pranuthi Tenali*, Saurabh Mathur*, Erik Blasch, Kristian Kersting, Sriraam Natarajan</p>
+        </li>
+        <li class="pub">
+          <p class="pub-venue">FUSION 2024 · Conference</p>
+          <p class="pub-title">On the Robustness and Reliability of Late Multi-Modal Fusion using Probabilistic Circuits</p>
+          <p class="pub-meta">Sahil Sidheekh, Pranuthi Tenali*, Saurabh Mathur*, Srik Blasch, Sriraam Natarajan</p>
+        </li>
+      </ul>
+      <a href="publications.html" class="see-all-link">See all publications →</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span class="footer-text">pranuthitenali.com</span>
+    <span class="footer-text">PhD · Computer Science · UT Dallas</span>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

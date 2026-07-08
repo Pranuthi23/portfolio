@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog · Pranuthi Tenali</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="nav">
+    <a href="index.html" class="nav-logo">Pranuthi Tenali</a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="publications.html" class="nav-link">Publications</a>
+      <a href="blog.html" class="nav-link active">Blog</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </header>
+
+  <main class="page-main">
+    <div class="page-header">
+      <div class="hero-rule" aria-hidden="true"></div>
+      <div>
+        <h1 class="page-title">Blog</h1>
+        <p class="page-subtitle">Notes on papers I read, books I work through, and ideas I'm turning over.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <h2 class="sec-label">All posts</h2>
+
+      <!-- Empty state — remove this block once you add real posts -->
+      <div class="blog-empty">
+        <p class="blog-empty-title">Nothing here yet.</p>
+        <p class="blog-empty-body">Posts will appear here as you add them. Each post lives in its own HTML file inside a <code>blog/</code> folder — see the README for how to add one.</p>
+      </div>
+
+      <!-- Blog post cards go here. Example structure (uncomment and fill in):
+      <ul class="blog-list">
+        <li class="blog-card">
+          <a href="blog/post-slug.html" class="blog-card-link">
+            <p class="pub-venue">Paper notes · June 2025</p>
+            <p class="blog-card-title">Your post title here</p>
+            <p class="pub-meta">A one-sentence description of what this post covers.</p>
+          </a>
+        </li>
+      </ul>
+      -->
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span class="footer-text">pranuthitenali.com</span>
+    <span class="footer-text">PhD · Computer Science · UT Dallas</span>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

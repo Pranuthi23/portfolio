@@ -1,0 +1,52 @@
+/* ============================================================
+   ANIMATIONS
+   Respects prefers-reduced-motion throughout.
+   ============================================================ */
+
+/* Fade-up on page load */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero,
+.page-header {
+  animation: fadeUp 0.45s ease both;
+}
+
+.section {
+  animation: fadeUp 0.45s ease both;
+  animation-delay: 0.1s;
+}
+
+/* Stagger pub/blog cards */
+.pub:nth-child(1) { animation: fadeUp 0.4s ease both; animation-delay: 0.12s; }
+.pub:nth-child(2) { animation: fadeUp 0.4s ease both; animation-delay: 0.18s; }
+.pub:nth-child(3) { animation: fadeUp 0.4s ease both; animation-delay: 0.24s; }
+.pub:nth-child(4) { animation: fadeUp 0.4s ease both; animation-delay: 0.30s; }
+.pub:nth-child(5) { animation: fadeUp 0.4s ease both; animation-delay: 0.36s; }
+
+.contact-item:nth-child(1) { animation: fadeUp 0.4s ease both; animation-delay: 0.12s; }
+.contact-item:nth-child(2) { animation: fadeUp 0.4s ease both; animation-delay: 0.18s; }
+.contact-item:nth-child(3) { animation: fadeUp 0.4s ease both; animation-delay: 0.24s; }
+.contact-item:nth-child(4) { animation: fadeUp 0.4s ease both; animation-delay: 0.30s; }
+
+/* Teal rule grows in on load */
+@keyframes ruleGrow {
+  from { transform: scaleY(0); transform-origin: top; }
+  to   { transform: scaleY(1); transform-origin: top; }
+}
+
+.hero-rule {
+  animation: ruleGrow 0.5s ease both;
+  animation-delay: 0.05s;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
