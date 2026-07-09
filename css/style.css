@@ -295,7 +295,21 @@ img { display: block; max-width: 100%; }
   color: var(--text);
   font-weight: 500;
   line-height: 1.5;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+}
+
+.pub-authors {
+  font-size: 13px;
+  color: var(--secondary);
+  line-height: 1.5;
+  margin-bottom: 3px;
+}
+
+.pub-venue-full {
+  font-size: 12.5px;
+  color: var(--accent);
+  font-style: italic;
+  line-height: 1.5;
 }
 
 .pub-meta {
@@ -478,6 +492,7 @@ img { display: block; max-width: 100%; }
    FOOTER
    ============================================================ */
 .footer {
+  width: 100%;
   max-width: var(--max-w);
   margin: 0 auto;
   padding: 22px 56px;
@@ -485,6 +500,7 @@ img { display: block; max-width: 100%; }
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .footer-text {
