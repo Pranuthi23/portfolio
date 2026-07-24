@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pranuthi Tenali</title>
+  <title>News · Pranuthi Tenali</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/animations.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,7 +15,7 @@
   <header class="nav">
     <a href="index.html" class="nav-logo">Pranuthi Tenali</a>
     <nav class="nav-links" aria-label="Main navigation">
-      <a href="index.html" class="nav-link active">Home</a>
+      <a href="index.html" class="nav-link">Home</a>
       <a href="publications.html" class="nav-link">Publications</a>
       <a href="blog.html" class="nav-link">Blog</a>
       <a href="contact.html" class="nav-link">Contact</a>
@@ -25,44 +25,16 @@
     </button>
   </header>
 
-  <main>
-    <section class="hero">
+  <main class="page-main">
+    <div class="page-header">
       <div class="hero-rule" aria-hidden="true"></div>
-      <div class="hero-text">
-        <p class="role-tag">PhD Student · UT Dallas · StARLinG Lab</p>
-        <h1 class="hero-name">Hi, I'm Pranuthi —<br>I work on Trustworthy Multimodal Fusion.</h1>
-        <p class="hero-bio">
-          I'm a PhD student in Computer Science at the University of Texas at Dallas, advised by
-          <a href="https://personal.utdallas.edu/~sriraam.natarajan/" target="_blank" rel="noopener" class="text-link">Prof. Sriraam Natarajan</a>.
-          My research sits at the intersection of multimodal fusion, probabilistic models, and neuro-symbolic systems —
-          with a focus on building fusion frameworks that are uncertainty-aware, credibility-aware, robust, and interpretable.
-        </p>
-        <ul class="hero-tags" aria-label="Research areas">
-          <li class="tag">Multimodal Fusion</li>
-          <li class="tag">Probabilistic Circuits</li>
-          <li class="tag">Neuro-Symbolic AI</li>
-        </ul>
-        <div class="cta-row">
-          <a href="publications.html" class="btn btn-fill">View publications</a>
-          <a href="blog.html" class="btn btn-out">Read the blog</a>
-        </div>
+      <div>
+        <h1 class="page-title">News</h1>
+        <p class="page-subtitle">Papers, talks, and other updates.</p>
       </div>
-      <div class="headshot-wrap">
-        <img
-          src="assets/images/headshot.jpg"
-          alt="Pranuthi Tenali"
-          class="headshot"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        />
-        <div class="headshot-placeholder" aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          <span>Your photo<br>goes here</span>
-        </div>
-      </div>
-    </section>
+    </div>
 
     <section class="section">
-      <h2 class="sec-label">News</h2>
       <ul class="news-list">
         <li class="news-item">
           <p class="news-date">Summer 2026</p>
@@ -84,8 +56,23 @@
           <p class="news-date">Apr 2026</p>
           <p class="news-text">🎉 Excited to share that our paper "Context-specific Credibility-aware Multimodal Fusion with Conditional Probabilistic Circuits" has been accepted to FUSION 2026!</p>
         </li>
+        <li class="news-item">
+          <p class="news-date">Jan 2025</p>
+          <p class="news-text">🎉 Our paper "Credibility-Aware Multi-Modal Fusion Using Probabilistic Circuits" has been accepted at AISTATS 2025!</p>
+        </li>
+        <li class="news-item">
+          <p class="news-date">Summer 2024</p>
+          <p class="news-text">👩‍🏫 Volunteering as a Machine Learning Instructor for high school students this summer!</p>
+        </li>
+        <li class="news-item">
+          <p class="news-date">May 2024</p>
+          <p class="news-text">🎉 Our paper "On the Robustness and Reliability of Late Multi-Modal Fusion using Probabilistic Circuits" has been accepted to FUSION 2024!</p>
+        </li>
+        <li class="news-item">
+          <p class="news-date">Dec 2023</p>
+          <p class="news-text">🎉 So excited that our paper "Credibility Aware Reliable Multi-Modal Fusion Using Probabilistic Circuits" has been accepted to the DAI workshop, co-located at AAAI 2024!</p>
+        </li>
       </ul>
-      <a href="news.html" class="see-all-link">See more news →</a>
     </section>
   </main>
 
