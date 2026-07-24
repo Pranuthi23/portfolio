@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Credibility-Aware Multi-Modal Fusion Using Probabilistic Circuits · Pranuthi Tenali</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="nav">
+    <a href="../index.html" class="nav-logo">Pranuthi Tenali</a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="../publications.html" class="nav-link">Publications</a>
+      <a href="../blog.html" class="nav-link active">Blog</a>
+      <a href="../contact.html" class="nav-link">Contact</a>
+    </nav>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </header>
+
+  <main class="page-main">
+    <div class="page-header">
+      <div class="hero-rule" aria-hidden="true"></div>
+      <div>
+        <p class="pub-venue" style="margin-bottom: 10px;">Paper notes · AISTATS 2025</p>
+        <h1 class="page-title">Credibility-Aware Multi-Modal Fusion Using Probabilistic Circuits</h1>
+        <p class="post-meta">Sahil Sidheekh*, Pranuthi Tenali*, Saurabh Mathur*, Erik Blasch, Kristian Kersting, Sriraam Natarajan<br>28th International Conference on Artificial Intelligence and Statistics</p>
+        <div class="post-resources">
+          <a href="https://arxiv.org/abs/2403.03281" target="_blank" rel="noopener" class="btn btn-fill">Read the paper</a>
+          <a href="https://github.com/Pranuthi23/Credibility_MultimodalData" target="_blank" rel="noopener" class="btn btn-out">View code</a>
+        </div>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="post-body">
+        <h2>Overview</h2>
+        <p>
+          Decision-making in fields like healthcare depends on synthesizing diverse data sources — MRIs, electronic
+          health records, lab results. Multimodal data offer rich representations and multiple views of an
+          underlying phenomenon, but these sources frequently contain noise, gaps, and contradictions. This work
+          targets <strong>late fusion</strong> scenarios, where individual per-modality models each produce a
+          prediction, and those predictions are then combined into a single answer.
+        </p>
+        <p>
+          We introduce a principled, probabilistic way to combine predictions from sources that aren't equally
+          reliable — weighting each modality by how <em>credible</em> it is for the input at hand, rather than
+          trusting every source equally.
+        </p>
+
+        <h2>Key contributions</h2>
+        <ol>
+          <li>A principled probabilistic framework for combining information from multiple data sources with varying reliability levels.</li>
+          <li>A theoretically grounded credibility measure linked to conditional entropy in unimodal predictions, enabling dependable late fusion.</li>
+          <li>Two algorithmic variants — Direct-PC and Credibility Weighted Mean — suited to different domain requirements.</li>
+          <li>Experimental validation showing the framework correctly models cross-modal interactions and accurately estimates credibility.</li>
+        </ol>
+
+        <h2>Defining credibility through consistency</h2>
+        <p>
+          Rather than relying on hand-tuned confidence scores, we define a source as reliable if it provides
+          <em>credible</em> information — measured by how much a modality's presence changes the model's
+          predictive distribution. Concretely, credibility is the KL divergence between the prediction made with a
+          modality present and the prediction made without it:
+        </p>
+        <div class="post-formula">Credibility(X) = D_KL( P(Y | X) &nbsp;||&nbsp; P(Y | X \ X) )</div>
+        <p>
+          A high-credibility modality shifts the prediction substantially when included; a low-credibility one
+          barely moves it. This ties credibility directly to conditional entropy, giving it a clean theoretical
+          grounding rather than treating it as a heuristic.
+        </p>
+
+        <h2>Computing credibility with probabilistic circuits</h2>
+        <p>
+          Evaluating that formula requires conditioning on arbitrary subsets of modalities being present or
+          absent — exactly the kind of partial-observability query that's expensive for most joint models. We use
+          <strong>probabilistic circuits</strong> (PCs) — a model class that represents a joint distribution as a
+          computational graph of simple distributions — because they support exact conditionals under partial
+          observability efficiently and differentiably.
+        </p>
+        <p>
+          Each modality is first passed through its own predictor to produce a unimodal predictive distribution.
+          A probabilistic circuit then models the <em>joint</em> distribution over these per-modality outputs and
+          the target variable, which is what makes it possible to query "what would the prediction be without
+          modality X?" in closed form.
+        </p>
+
+        <h3>Two fusion methods</h3>
+        <p>
+          <strong>Direct-PC (DPC)</strong> reads the fused prediction directly off the circuit's joint distribution
+          over unimodal outputs and the target — no separate weighting step.
+        </p>
+        <p>
+          <strong>Credibility Weighted Mean (CWM)</strong> instead combines the individual unimodal predictions in a
+          weighted average, using each modality's credibility score as its weight.
+        </p>
+        <p>
+          Both are fully differentiable, so the whole pipeline — per-modality predictors and the fusion circuit — can
+          be trained end-to-end with backpropagation.
+        </p>
+
+        <h2>Experiments</h2>
+        <p>
+          We validated the approach on AV-MNIST, a dataset pairing image and audio modalities that both predict
+          the same spoken/displayed digit. We injected controlled noise into individual modalities and tracked how
+          the model's credibility assignments responded.
+        </p>
+        <p>
+          The result: the noisy modality's credibility score dropped in proportion to the injected noise, while the
+          clean modality's credibility rose to compensate — confirming that the framework is sensitive to actual
+          information quality, not just which modality happens to be present.
+        </p>
+
+        <h2>Citation</h2>
+        <pre><code>@inproceedings{sidheekh2024credibility,
+    title = {Credibility-aware Multi-Modal Fusion Using Probabilistic Circuits},
+    author = {Sidheekh, Sahil and Tenali, Pranuthi and Mathur, Saurabh and Blasch, Erik and Kersting, Kristian and Natarajan, Sriraam},
+    booktitle = {International Conference on Artificial Intelligence and Statistics},
+    year = {2025}
+}</code></pre>
+
+        <p class="post-footnote">
+          Supported by AFOSR (FA9550-23-1-0239), ARO (W911NF2010224), and the DARPA Assured Neuro Symbolic
+          Learning and Reasoning program (HR001122S0039).
+        </p>
+
+        <a href="../blog.html" class="see-all-link">← Back to blog</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span class="footer-text">pranuthitenali.com</span>
+    <span class="footer-text">Richardson, TX</span>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
